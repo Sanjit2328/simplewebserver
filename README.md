@@ -117,6 +117,8 @@ httpd.serve_forever()
 ```
 
 ## OUTPUT:
+NAME:Sanjit.P
+Register No:212223220190
 ![Screenshot 2024-03-25 153507](https://github.com/Sanjit2328/simplewebserver/assets/139331694/aa95dda5-718e-47ae-97d9-1178285e04e3)
 
 ![Screenshot 2024-03-25 151522](https://github.com/Sanjit2328/simplewebserver/assets/139331694/2a1b602f-953e-4576-a623-9f2346df2587)
