@@ -22,6 +22,8 @@ Testing the webserver.
 
 ## PROGRAM:
 ```
+from http.server import HTTPServer, BaseHTTPRequestHandler
+content = """
 <html>
 <html lang="en">
 <head>
@@ -89,10 +91,34 @@ Testing the webserver.
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
 </body>
 </html>
+"""
+class myhandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type','text/html;charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address=('',8000)
+httpd=HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httpd.serve_forever()
+class myhandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type','text/html;charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address=('',8000)
+httpd=HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httpd.serve_forever()
 ```
 
 ## OUTPUT:
-![Screenshot 2024-03-25 151404](https://github.com/Sanjit2328/simplewebserver/assets/139331694/e3ffd858-2ed3-4882-892b-79e3cf1e32e5)
+![Screenshot 2024-03-25 153507](https://github.com/Sanjit2328/simplewebserver/assets/139331694/aa95dda5-718e-47ae-97d9-1178285e04e3)
+
 ![Screenshot 2024-03-25 151522](https://github.com/Sanjit2328/simplewebserver/assets/139331694/2a1b602f-953e-4576-a623-9f2346df2587)
 
 
